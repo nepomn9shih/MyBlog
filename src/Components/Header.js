@@ -8,10 +8,22 @@ import {
     Typography,
   } from "@material-ui/core";
   import MenuIcon from "@material-ui/icons/Menu";
+import { useState } from "react";
 import { useStyles } from "../useStyles";
+import LoginForm from "./LoginForm";
 
 const Header = () => {
     const classes = useStyles();
+
+    const [open, setOpen] = useState(false)
+
+    const handleClickOpen = () => {
+      setOpen(true)
+    }
+
+    const handleClose = () => {
+      setOpen(false)
+    }
 
     return <AppBar>
     <Container fixed>
@@ -25,12 +37,13 @@ const Header = () => {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" className={classes.title}>
-          Модный сайт
+          Модный блог
         </Typography>
         <Box mr={3}>
-          <Button color="inherit" variant="outlined">
+          <Button color="inherit" variant="outlined" onClick={handleClickOpen}>
             Log in
           </Button>
+          <LoginForm handleClose={handleClose} open={open}/>
         </Box>
         <Button color="secondary" variant="contained">
           Sign up

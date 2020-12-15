@@ -25,7 +25,7 @@ const ContentHeader = () => {
                 color="inherit"
                 gutterBottom //отступ снизу
               >
-                Заголовок сайта
+                Заголовок блога
               </Typography>
               <Typography
                 variant="h5"
